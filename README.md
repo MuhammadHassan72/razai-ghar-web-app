@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RAZAI GHAR
 
-## Getting Started
+Luxury bedding storefront, interactive bed customizer, My Sanctuary customer dashboard and Admin CMS, built with Next.js 16.4.2, React 19.3.0, TypeScript, Tailwind CSS v4 and strict Zod commerce contracts.
 
-First, run the development server:
+**Start with the [Complete Feature & Operations Guide](RAZAI_GHAR_COMPLETE_GUIDE.md)** for every route, demo session, shopping/builder workflow, customer feature, Admin procedure, seed promotion and Vercel deployment step.
 
-```bash
+## Run locally
+
+Use Node 22.x and npm from the repository root:
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000). For port 3100, run `npm run dev -- --port 3100`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify and preview a production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run build
+npm run lint
+npm run test:commerce
+npm run start -- --port 3100
+```
 
-## Learn More
+Run the build and commerce tests sequentially because the test harness also uses `.next`. Stop a server using the current build before rebuilding it.
 
-To learn more about Next.js, take a look at the following resources:
+## Main entry points
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` — editorial storefront and recipe discovery.
+- `/shop` — filtered catalog and product selection.
+- `/create-your-bed` — three-step layered bed customizer.
+- `/sign-in` — Guest, Customer and Admin demo sessions.
+- `/account` — My Sanctuary orders, looks, wishlist, profile and addresses.
+- `/admin` — catalog, inventory, fulfillment, promotions, homepage CMS and reporting.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Operating boundary
 
-## Deploy on Vercel
+This application uses a **device-only QA Commerce Engine** persisted under `bedding-commerce:qa:v1`. Same-origin tabs synchronize; different browsers, devices, ports and hostnames have separate state. QA roles reset on a full reload while persisted commerce data remains.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No identity provider, ERPNext server, payment processor, carrier API or qualified conversion attribution service is connected. Checkout creates pending QA orders with stock holds; Finance actions simulate capture/refund without transferring money. Product facts and assessments are synthetic fixtures, and the layered stage is a labelled QA illustration. Read the complete guide before using staff actions or planning a commercial integration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Handover documents
+
+- [Complete guide](RAZAI_GHAR_COMPLETE_GUIDE.md)
+- [Premium Bedding UI UX Master Specification](Premium%20Bedding%20UI%20UX%20Master%20Specification.md)
+- [Phase 1 verification](PHASE_1_VERIFICATION.md)
+- [Phase 2 verification](PHASE_2_VERIFICATION.md)
+- [Phase 3 verification](PHASE_3_VERIFICATION.md)
+- [Phase 4 verification](PHASE_4_VERIFICATION.md)
+
+Temporary verification screenshots/logs under `artifacts/`, generated `.next/` output and installed dependencies are intentionally ignored by Git. The complete source, public branding assets, specification, tests, lockfile and Markdown reports are versioned.
